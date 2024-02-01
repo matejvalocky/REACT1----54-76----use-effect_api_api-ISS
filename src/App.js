@@ -4,6 +4,7 @@ const App = () => {
 
 
   const [value, setValue] = useState(0)
+  const [test, setTest] = useState(0)
 
 
   // useEffect nemôžeme obaľovať do podmienky
@@ -17,11 +18,18 @@ const App = () => {
       button.textContent = "klikni"
     }
 
+    console.log("Prvý useEffect - Klikni")
 
 
-  }, []) // pridanie []
+
+  }, [value]) // spustí sa len vtedy keď sa zmení value
 
   // useEffect sa spúšťa až na konci
+
+  useEffect(() => {
+    document.title = `Nový titulok ${test}`
+    console.log("Druhý useEffect - titulok")
+  },[test]) // spustí sa len vtedy keď sa zmení test
 
 
 
@@ -31,8 +39,10 @@ const App = () => {
     <div>
       <h1>začíname</h1>
       <p>{value}</p>
-      {console.log("ja som return")}
+      
       <button className="btn" onClick={() => setValue(value + 1)}>Klikni</button>
+
+      <button className="btn-test" onClick={() => setTest(test + 1)}>Titulok</button>
     </div>
   )
 }
