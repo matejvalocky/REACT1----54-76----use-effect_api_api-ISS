@@ -7,6 +7,7 @@ const App = () => {
 
 
   // useEffect nemôžeme obaľovať do podmienky
+  // useEffect beží len raz ak na konci pridáme []
 
   useEffect(() => {
     const button = document.querySelector(".btn")
@@ -15,10 +16,10 @@ const App = () => {
     } else {
       button.textContent = "klikni"
     }
-    
-    
 
-  })
+
+
+  }, []) // pridanie []
 
   // useEffect sa spúšťa až na konci
 
