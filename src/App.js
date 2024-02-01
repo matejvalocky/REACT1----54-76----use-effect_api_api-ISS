@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 
 const App = () => {
 
+  console.log("text úplne hore")
+
   const [value, setValue] = useState(0)
 
   
@@ -15,7 +17,7 @@ const App = () => {
 
 
 
-
+console.log("text pred return")
 
   return (
     <div>
