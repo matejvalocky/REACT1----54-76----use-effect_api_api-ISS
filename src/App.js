@@ -6,12 +6,18 @@ const App = () => {
   const [value, setValue] = useState(0)
 
 
-
+  // useEffect nemôžeme obaľovať do podmienky
 
   useEffect(() => {
-    console.log("ja som useEffect");
     const button = document.querySelector(".btn")
-    button.textContent = `Klik číslo ${value}`
+    if (value >= 1) {
+      button.textContent = `Klik číslo ${value}`
+    } else {
+      button.textContent = "klikni"
+    }
+    
+    
+
   })
 
   // useEffect sa spúšťa až na konci
