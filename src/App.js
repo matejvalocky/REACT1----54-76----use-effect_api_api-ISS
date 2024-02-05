@@ -1,8 +1,12 @@
+import { useState } from "react"
+
 const App = () => {
+
+  const [quote, setQuote] = useState("východzí text")
 
   const url = "https://api.kanye.rest/"
 
-  let quote = "vychodzí text"
+
 
   console.log("text nad funkciou")
 
@@ -11,10 +15,12 @@ const App = () => {
   const getQuote = async () => {
     const response = await fetch(url)
     const data = await response.json()
-    quote = (data["quote"])
-    console.log("text vo funkcií")
+    const finalQuote = data["quote"]
+    // setQuote(finalQuote)
 
   }
+
+  
 
   getQuote()
 
@@ -23,7 +29,6 @@ const App = () => {
   return (
     <div>
       <h1>{quote}</h1>
-      {console.log("text v return")}
     </div>
   )
 }
