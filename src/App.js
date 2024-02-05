@@ -11,6 +11,8 @@ const App = () => {
     window.addEventListener("resize", sizeControl)
   })
 
+  // pridáme [] ak to chceme spustiť len raz, ale toto nie je riešenie
+
   return (
     <div>
       <h1>Šírka okna</h1>
