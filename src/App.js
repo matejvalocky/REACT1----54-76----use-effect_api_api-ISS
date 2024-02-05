@@ -8,7 +8,12 @@ const App = () => {
   }
 
   useEffect ( () => {
+    console.log("ja som useEffect")
     window.addEventListener("resize", sizeControl)
+    return () => {
+      console.log("ja som cleanUp function")
+      window.removeEventListener("resize", sizeControl)
+    }
   })
 
   // pridáme [] ak to chceme spustiť len raz, ale toto nie je riešenie
