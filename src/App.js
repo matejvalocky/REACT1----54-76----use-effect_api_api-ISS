@@ -2,15 +2,17 @@ const App = () => {
 
   const url = "https://api.kanye.rest/"
 
-  // 1. riadok kodu
-  // 2. riadok kodu - 5 sekund
-  // 3. riadok kodu
+  let quote = "vychodzí text"
+
+  console.log("text nad funkciou")
+
 
 
   const getQuote = async () => {
     const response = await fetch(url)
-    const data = await  response.json()
-    console.log(data["quote"])
+    const data = await response.json()
+    quote = (data["quote"])
+    console.log("text vo funkcií")
 
   }
 
@@ -20,7 +22,8 @@ const App = () => {
 
   return (
     <div>
-  
+      <h1>{quote}</h1>
+      {console.log("text v return")}
     </div>
   )
 }
