@@ -1,29 +1,28 @@
-import { useState, useEffect } from "react"
-
 const App = () => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth)
 
-  const sizeControl = () => {
-    setWindowSize(window.innerWidth)
+  const url = "https://api.kanye.rest/"
+
+  // 1. riadok kodu
+  // 2. riadok kodu - 5 sekund
+  // 3. riadok kodu
+
+
+  const getQuote = async () => {
+    const response = await fetch(url)
+    const data = await  response.json()
+    console.log(data["quote"])
+
   }
 
-  useEffect ( () => {
-    console.log("ja som useEffect")
-    window.addEventListener("resize", sizeControl)
-    return () => {
-      console.log("ja som cleanUp function")
-      window.removeEventListener("resize", sizeControl)
-    }
-  })
+  getQuote()
 
-  // pridáme [] ak to chceme spustiť len raz, ale toto nie je riešenie
+
 
   return (
     <div>
-      <h1>Šírka okna</h1>
-      <h2>{windowSize}</h2>
+  
     </div>
   )
 }
-
+// API 
 export default App
