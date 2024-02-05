@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const App = () => {
 
@@ -16,13 +16,15 @@ const App = () => {
     const response = await fetch(url)
     const data = await response.json()
     const finalQuote = data["quote"]
-    // setQuote(finalQuote)
+    setQuote(finalQuote)
 
   }
 
-  
+  useEffect(() => {
+    getQuote()
+  }, []) // ide len raz
 
-  getQuote()
+  
 
 
 
