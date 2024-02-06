@@ -1,8 +1,8 @@
 // Multiple returns
-
+import { useState, useEffect } from "react"
 const url = "http://api.open-notify.org/iss-now.json"
 
-import { useState, useEffect } from "react"
+
 
 const App = () => {
 
