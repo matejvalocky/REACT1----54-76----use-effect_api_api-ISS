@@ -1,38 +1,19 @@
-import { useState, useEffect } from "react"
-
 const App = () => {
+  const url = "http://api.open-notify.org/iss-now.json"
 
-  const [quote, setQuote] = useState("východzí text")
-
-  const url = "https://api.kanye.rest/"
-
-
-
-  console.log("text nad funkciou")
-
-
-
-  const getQuote = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
-    const finalQuote = data["quote"]
-    setQuote(finalQuote)
-
+  const getCoordinates = async() => {
+    const response = await fetch(url) // fetch daj mi tie dáta // await - počkaj
+    const data = await response.json() // prekonvertovanie dat
+    console.log(data["iss_position"]["latitude"]) // zemepisna šírka
+    console.log(data["iss_position"]["longitude"]) // zemepisna dĺžka
   }
 
-  useEffect(() => {
-    getQuote()
-  }, []) // ide len raz
-
-  
-
+  getCoordinates()
 
 
   return (
-    <div>
-      <h1>{quote}</h1>
-    </div>
+    <h1>API</h1>
   )
 }
-// API 
+
 export default App
