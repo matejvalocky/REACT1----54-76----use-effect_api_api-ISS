@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 
 const App = () => {
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [latitude, setLatitude] = useState("")
   const [longitude, setLongitude] = useState("")
 
@@ -19,6 +19,7 @@ const App = () => {
         setLatitude(position["latitude"])
         setLongitude(position["longitude"])
       })
+      setLoading(false)
   }, [])
 
   if (loading) {
