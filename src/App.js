@@ -6,25 +6,35 @@ import { useState, useEffect } from "react"
 
 const App = () => {
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [latitude, setLatitude] = useState("")
+  const [longitude, setLongitude] = useState("")
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => data["iss_position"])
       .then((position) => {
-          console.log(position["latitude"])
-          console.log(position["longitude"])
+
+        setLatitude(position["latitude"])
+        setLongitude(position["longitude"])
       })
   }, [])
 
-
-
   if (loading) {
     return <h2>Načítanie stránky</h2>
-  } else {
-    return <h2>Obsah stránky</h2>
   }
+
+
+
+
+  return <>
+    <h2>Zemepisná šírka</h2>
+    <p>{latitude}</p>
+    <h2>Zemepisná dĺžka</h2>
+    <p>{longitude}</p>
+  </>
+
 
 
 
